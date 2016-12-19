@@ -130,5 +130,6 @@ revelation =
 
 
 main =
-    revelation
+    String.length revelation
+        |> toString
         |> Html.text
