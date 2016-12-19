@@ -4,12 +4,19 @@ import Html
 
 
 escapeEarth velocity speed =
-    if velocity > 11.186 then
-        "Godspeed"
-    else if speed == 7.67 then
-        "Stay in orbit"
-    else
-        "Come back"
+    let
+        escapeVelocityInKmPerSec =
+            11.186
+
+        orbitalSpeedInKmPerSec =
+            7.67
+    in
+        if velocity > escapeVelocityInKmPerSec then
+            "Godspeed"
+        else if speed == orbitalSpeedInKmPerSec then
+            "Stay in orbit"
+        else
+            "Come back"
 
 
 speed distance time =
@@ -30,6 +37,10 @@ multiply c d =
 
 divide e f =
     e / f
+
+
+(+++) first second =
+    first ++ second
 
 
 main =
