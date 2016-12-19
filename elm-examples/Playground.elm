@@ -103,6 +103,21 @@ hashtag dayInNumber =
             "#Whatever"
 
 
+whereToPark speed =
+    case speed of
+        7.67 ->
+            "Low Earth Orbit"
+
+        3.8 ->
+            "Medium Earth Orbit"
+
+        3.07 ->
+            "Geostationary Orbit"
+
+        _ ->
+            "Nowhere"
+
+
 main =
-    hashtag 5
+    whereToPark 7.67
         |> Html.text
