@@ -143,7 +143,11 @@ launchTimePattern =
     Regex.regex "\\d\\d:\\d\\d (a\\.m\\.|p\\.m\\.)"
 
 
+launchTimes =
+    Regex.find (Regex.AtMost 1) launchTimePattern apollo
+
+
 main =
-    Regex.contains launchTimePattern apollo
+    launchTimes
         |> toString
         |> Html.text
