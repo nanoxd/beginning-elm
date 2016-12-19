@@ -76,6 +76,33 @@ weekday dayInNumber =
             "Unknown day"
 
 
+hashtag dayInNumber =
+    case weekday dayInNumber of
+        "Sunday" ->
+            "#SinDay"
+
+        "Monday" ->
+            "#MondayBlues"
+
+        "Tuesday" ->
+            "#TakeMeBackTuesday"
+
+        "Wednesday" ->
+            "#HumpDay"
+
+        "Thursday" ->
+            "#ThrowbackThursday"
+
+        "Friday" ->
+            "#FlashbackFriday"
+
+        "Saturday" ->
+            "#Caturday"
+
+        _ ->
+            "#Whatever"
+
+
 main =
-    weekday 5
+    hashtag 5
         |> Html.text
