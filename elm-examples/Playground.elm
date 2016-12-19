@@ -1,6 +1,7 @@
 module Playground exposing (..)
 
 import Html
+import Regex
 
 
 escapeEarth velocity speed fuelStatus =
@@ -129,7 +130,20 @@ revelation =
     """
 
 
+apollo =
+    """
+    On July 16, 1969, the massive Saturn V rocket lifted
+    off from NASA's Kennedy Space Center at 09:32 a.m. EDT.
+    Four days later, on July 20, Neil Armstrong and Buzz Aldrin
+    landed on the Moon.
+    """
+
+
+launchTimePattern =
+    Regex.regex "\\d\\d:\\d\\d (a\\.m\\.|p\\.m\\.)"
+
+
 main =
-    String.length revelation
+    Regex.contains launchTimePattern apollo
         |> toString
         |> Html.text
