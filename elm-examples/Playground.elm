@@ -139,14 +139,17 @@ apollo =
     """
 
 
+launchTimePattern : Regex.Regex
 launchTimePattern =
     Regex.regex "\\d\\d:\\d\\d (a\\.m\\.|p\\.m\\.)"
 
 
+launchTimes : List Regex.Match
 launchTimes =
     Regex.find (Regex.AtMost 1) launchTimePattern apollo
 
 
+validateEmail : String -> ( String, String )
 validateEmail email =
     let
         emailPattern =
@@ -161,7 +164,23 @@ validateEmail email =
             ( "Invalid email", "red" )
 
 
+sendEmail : String -> String
+sendEmail email =
+    let
+        ( _, emailColor ) =
+            validateEmail email
+
+        isValid =
+            emailColor == "green"
+    in
+        if isValid then
+            "Success"
+        else
+            "Cannot send email"
+
+
+main : Html.Html msg
 main =
-    validateEmail "nano@fdp.io"
+    sendEmail "me@example.org"
         |> toString
         |> Html.text
